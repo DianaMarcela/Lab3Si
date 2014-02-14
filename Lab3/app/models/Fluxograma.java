@@ -51,6 +51,13 @@ public class Fluxograma {
 		return fluxog;
 	}
 
+
+	public void removeDisciplina(int periodo, Disciplina disciplina) {
+		ArrayList<Disciplina> disciplinasDoPeriodo = this.getDisciplinasDoPeriodo(periodo);
+   	 	disciplinasDoPeriodo.remove(disciplina);
+   	 	fluxog.put(periodo,disciplinasDoPeriodo);
+	}
+
 	
        
 
