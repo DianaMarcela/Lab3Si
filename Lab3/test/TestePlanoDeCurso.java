@@ -2,6 +2,8 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import models.PlanoDeCurso;
+
 import org.junit.Before;
 import org.junit.Test;
 
