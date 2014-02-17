@@ -23,7 +23,6 @@ public class TesteDeCasos {
 	
 	@Before
 	public void setUp() {
-		plano = new PlanoDeCurso();
 		fluxograma = new Fluxograma();
 		disciplina1 = new Disciplina("Calculo I", 4);
 		copiaDaDisciplina1 = new Disciplina("Calculo I", 4);

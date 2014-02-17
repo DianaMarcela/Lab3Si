@@ -47,7 +47,8 @@ public class Fluxograma {
 		return fluxog.get(periodo);
     	
     }
-	public HashMap<Integer, ArrayList<Disciplina>> getFluxog() {
+	
+    public HashMap<Integer, ArrayList<Disciplina>> getFluxog() {
 		return fluxog;
 	}
 
@@ -58,8 +59,6 @@ public class Fluxograma {
    	 	fluxog.put(periodo,disciplinasDoPeriodo);
 	}
 
-	
-       
 
 }
 

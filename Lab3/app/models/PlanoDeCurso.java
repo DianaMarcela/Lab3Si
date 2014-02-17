@@ -25,7 +25,6 @@ public class PlanoDeCurso {
 		
 		return testando;
 			
-		}
-		
 	}
+}
 
