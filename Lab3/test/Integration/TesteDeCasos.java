@@ -1,3 +1,4 @@
+package Integration;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -5,7 +6,6 @@ import java.util.Iterator;
 
 import models.Disciplina;
 import models.Fluxograma;
-import models.PlanoDeCurso;
 import models.RepositorioDeDisciplinas;
 import models.CarregaDisciplinas;
 
@@ -21,7 +21,6 @@ import static org.junit.Assert.*;
 
 public class TesteDeCasos {
 
-	private PlanoDeCurso plano;
 	private Fluxograma fluxograma;
 	private Disciplina disciplina1;
 	private Disciplina copiaDaDisciplina1;

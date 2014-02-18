@@ -1,14 +1,40 @@
 package models;
+
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Disciplina {
 	
-	
+
 	private String nomeDisciplina;
 	private int creditos;
 	private int periodo;
+	private ArrayList<String> preRequisito;
+
+	public Disciplina(String nomeDisciplina, int credito, int periodo,
+			ArrayList<String> preRequesito) {
+		this.nomeDisciplina = nomeDisciplina;
+		this.creditos = credito;
+		this.periodo = periodo;
+		this.preRequisito = preRequesito;
+	}
+
+	public String getNomeDisciplina() {
+		return nomeDisciplina;
+	}
+
+	public void setNomeDisciplina(String nomeDisciplina) {
+		this.nomeDisciplina = nomeDisciplina;
+	}
+
+	public int getCreditos() {
+		return creditos;
+	}
+
+	public void setCredito(int credito) {
+		this.creditos = credito;
+	}
+
 	public int getPeriodo() {
 		return periodo;
 	}
@@ -21,31 +47,6 @@ public class Disciplina {
 		this.creditos = creditos;
 	}
 
-	private ArrayList<String> preRequisito;
-	
-	public Disciplina(String nomeDisciplina, int credito, int periodo, ArrayList<String> preRequesito){
-		this.nomeDisciplina = nomeDisciplina;
-		this.creditos = credito;
-		this.periodo = periodo;
-		this.preRequisito = preRequesito;
-	}
-
-	public String getNomeDisciplina() {
-		return nomeDisciplina;
-	}
-	public void setNomeDisciplina(String nomeDisciplina) {
-		this.nomeDisciplina = nomeDisciplina;
-	}
-	public int getCreditos() {
-		return creditos;
-	}
-	public void setCredito(int credito) {
-		this.creditos = credito;
-	}
-
-	
-	
-	
 	public List<String> getPreRequisito() {
 		return preRequisito;
 	}
@@ -65,7 +66,7 @@ public class Disciplina {
 				+ ((preRequisito == null) ? 0 : preRequisito.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -89,12 +90,5 @@ public class Disciplina {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }
