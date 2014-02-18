@@ -7,42 +7,58 @@ public class Disciplina {
 	
 	
 	private String nomeDisciplina;
-	private int credito;
-	private List<Disciplina> preRequisito;
+	private int creditos;
+	private int periodo;
+	public int getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(int periodo) {
+		this.periodo = periodo;
+	}
+
+	public void setCreditos(int creditos) {
+		this.creditos = creditos;
+	}
+
+	private ArrayList<String> preRequisito;
 	
-	public Disciplina(String nomeDisciplina, int credito, List<Disciplina> preRequesito){
+	public Disciplina(String nomeDisciplina, int credito, int periodo, ArrayList<String> preRequesito){
 		this.nomeDisciplina = nomeDisciplina;
-		this.credito = credito;
-		this.preRequisito = new ArrayList<Disciplina>();
-		
+		this.creditos = credito;
+		this.periodo = periodo;
+		this.preRequisito = preRequesito;
 	}
-	public Disciplina(String nomeDisciplina, int credito){
-		this.nomeDisciplina = nomeDisciplina;
-		this.credito = credito;
-	}
+
 	public String getNomeDisciplina() {
 		return nomeDisciplina;
 	}
 	public void setNomeDisciplina(String nomeDisciplina) {
 		this.nomeDisciplina = nomeDisciplina;
 	}
-	public int getCredito() {
-		return credito;
+	public int getCreditos() {
+		return creditos;
 	}
 	public void setCredito(int credito) {
-		this.credito = credito;
+		this.creditos = credito;
 	}
-	public List<Disciplina> getPreRequisito() {
+
+	
+	
+	
+	public List<String> getPreRequisito() {
 		return preRequisito;
 	}
-	public void setPreRequisito(List<Disciplina> preRequisito) {
+
+	public void setPreRequisito(ArrayList<String> preRequisito) {
 		this.preRequisito = preRequisito;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + credito;
+		result = prime * result + creditos;
 		result = prime * result
 				+ ((nomeDisciplina == null) ? 0 : nomeDisciplina.hashCode());
 		result = prime * result
@@ -59,7 +75,7 @@ public class Disciplina {
 		if (getClass() != obj.getClass())
 			return false;
 		Disciplina other = (Disciplina) obj;
-		if (credito != other.credito)
+		if (creditos != other.creditos)
 			return false;
 		if (nomeDisciplina == null) {
 			if (other.nomeDisciplina != null)

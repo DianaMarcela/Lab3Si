@@ -5,15 +5,9 @@ import java.util.List;
 
 
 public class PlanoDeCurso {
-	private Disciplina disciplina;
 	private Fluxograma fluxog = new Fluxograma();
 	private HashMap<Integer, ArrayList<Disciplina>> disc;
 	
-	
-
-	public Disciplina getDisciplina() {
-		return disciplina;	
-	}
 	
 	public List<String> getDisciplinasPeriodo(Integer periodo){
 		List<String> testando =  new ArrayList<String>();

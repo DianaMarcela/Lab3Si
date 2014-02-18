@@ -1,7 +1,13 @@
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
+
 import models.Disciplina;
 import models.Fluxograma;
 import models.PlanoDeCurso;
+import models.RepositorioDeDisciplinas;
+import models.CarregaDisciplinas;
 
 import org.junit.*;
 
@@ -23,10 +29,11 @@ public class TesteDeCasos {
 	
 	@Before
 	public void setUp() {
+		ArrayList<String> preRequisitos = new ArrayList<String>();
 		fluxograma = new Fluxograma();
-		disciplina1 = new Disciplina("Calculo I", 4);
-		copiaDaDisciplina1 = new Disciplina("Calculo I", 4);
-		disciplina2 = new Disciplina("Projeto em Computacao II", 6);
+		disciplina1 = new Disciplina("Calculo I", 4, 1,preRequisitos);
+		copiaDaDisciplina1 = new Disciplina("Calculo I", 4, 1, preRequisitos);
+		disciplina2 = new Disciplina("Projeto em Computacao II", 6, 8, preRequisitos);
 	}
 	
 	@Test
@@ -60,5 +67,15 @@ public class TesteDeCasos {
 		fluxograma.removeDisciplina(3, disciplina1);
 		//verifica se o periodo nao mais contem Calculo I
 		assertFalse((fluxograma.getDisciplinasDoPeriodo(3).contains(disciplina1)));
+	}
+	
+	
+	@Test
+	public void imprimindoDisciplinasDoArquivo(){
+		RepositorioDeDisciplinas disciplinas = new RepositorioDeDisciplinas(); 
+		Iterator<Disciplina> iterator = disciplinas.getTodasAsDisciplinas().iterator();
+		while(iterator.hasNext()){
+			System.out.println(iterator.next().getNomeDisciplina());
+		}
 	}
 }
