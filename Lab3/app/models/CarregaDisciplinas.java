@@ -9,95 +9,85 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Classe CarregaDisciplina responsavel por ler o arquivo.
+ *
+ *OBS: Information Expert = possui as informacoes necessarias para obtencao das disciplinas.
+ */
 public class CarregaDisciplinas {
-	
+
 	private String arquivo = "app/models/disciplinas.txt";
-	private List<Disciplina> todasAsDisciplinas;
-	
-	
-	public CarregaDisciplinas(){
+	private List<Disciplina> todasAsDisciplinas;	
+
+	/**
+	 * Construtor
+	 */
+	public CarregaDisciplinas() {
 		todasAsDisciplinas = new ArrayList<Disciplina>();
 		carregar();
 	}
 	
-	public List<Disciplina> carregar(){
+	/**
+	 * Carrega a lista das disciplinas
+	 * @return a lista com todas as disciplinas
+	 */
+	public List<Disciplina> carregar() {
 		try {
-			BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(new File(arquivo))));
-			
-			while(in.ready()){
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					new FileInputStream(new File(arquivo))));
+
+			while (in.ready()) {
 				String[] linhas = in.readLine().split("-");
 				String nome = linhas[0];
 				int creditos = Integer.parseInt(linhas[1]);
 				int periodo = Integer.parseInt(linhas[2]);
 				ArrayList<String> preRequisitos = carregarPreRequisitosDoArquivo(linhas[3]);
-				todasAsDisciplinas.add(new Disciplina(nome, creditos, periodo, preRequisitos));
-				
+				todasAsDisciplinas.add(new Disciplina(nome, creditos, periodo,
+						preRequisitos));
+
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			
+
 		return todasAsDisciplinas;
-		
+
 	}
-	
-	private ArrayList<String> carregarPreRequisitosDoArquivo(String linha){
+
+	/**
+	 * Carrega os preRequisito das disciplinas
+	 * @param linha
+	 * @return os preRequisitos
+	 */
+	private ArrayList<String> carregarPreRequisitosDoArquivo(String linha) {
 		ArrayList<String> preRequisitos = new ArrayList<String>();
 		linha = linha.replace("}", "");
 		linha = linha.replace("{", "");
-		
+
 		String[] nomePreRequisitos = linha.split(",");
-		
-		for(String nome : nomePreRequisitos){
-			if(!nome.equals("")){
+
+		for (String nome : nomePreRequisitos) {
+			if (!nome.equals("")) {
 				preRequisitos.add(nome);
 			}
 		}
 		return preRequisitos;
 	}
 
+	/**
+	 * Lista com as disciplinas
+	 * @return a lista de todasAsDisciplinas
+	 */
 	public List<Disciplina> getTodasAsDisciplinas() {
 		return todasAsDisciplinas;
 	}
 
+	/**
+	 * Modifica a lista das disciplinas
+	 * @param todasAsDisciplinas
+	 */
 	public void setTodasAsDisciplinas(List<Disciplina> todasAsDisciplinas) {
 		this.todasAsDisciplinas = todasAsDisciplinas;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*public static void main (String[]args) throws IOException{
-	try {
-		BufferedReader arquivo = new BufferedReader(new FileReader("disciplinas.txt"));
-		
-		while(arquivo.ready()){
-			linhasDoArquivo.add(arquivo.readLine());
-		}
-	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-	}
-	
-	public List carregaDisciplinasDoArquivo() {
-		ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
-		
-		for(int i = 0; i < linhasDoArquivo.size(); i++){
-			
-		}
-		
-		
-		return null;
-		
-	}*/
 
 }
-

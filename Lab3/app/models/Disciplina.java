@@ -1,58 +1,75 @@
 package models;
+
 import java.util.ArrayList;
 import java.util.List;
 
+	/**
+	 * Classe Disciplina
+	 * 
+	 *OBS: Information Expert= possui o conhecimento total de uma disciplina.
+	 */
 
 public class Disciplina {
-	
-	
+
 	private String nomeDisciplina;
 	private int creditos;
 	private int periodo;
-	public int getPeriodo() {
-		return periodo;
-	}
-
-	public void setPeriodo(int periodo) {
-		this.periodo = periodo;
-	}
-
-	public void setCreditos(int creditos) {
-		this.creditos = creditos;
-	}
-
 	private ArrayList<String> preRequisito;
+
 	
-	public Disciplina(String nomeDisciplina, int credito, int periodo, ArrayList<String> preRequesito){
+	/**
+	 * Construtor de disciplina
+	 * @param nomeDisciplina
+	 * @param credito
+	 * @param periodo
+	 * @param preRequesito
+	 */
+	public Disciplina(String nomeDisciplina, int credito, int periodo,
+			ArrayList<String> preRequesito) {
 		this.nomeDisciplina = nomeDisciplina;
 		this.creditos = credito;
 		this.periodo = periodo;
 		this.preRequisito = preRequesito;
 	}
-
+	/**
+	 * Retorna o nome da disciplina
+	 * @return nome da disciplina
+	 */
 	public String getNomeDisciplina() {
 		return nomeDisciplina;
-	}
+	}	
+	
+	/**
+	 * Modifica nome disciplina
+	 * @param nomeDisciplina
+	 */
 	public void setNomeDisciplina(String nomeDisciplina) {
 		this.nomeDisciplina = nomeDisciplina;
 	}
+	
+	/**
+	 * Quantidade de creditos
+	 * @return creditos
+	 */
 	public int getCreditos() {
 		return creditos;
 	}
-	public void setCredito(int credito) {
-		this.creditos = credito;
+	/**
+	 * Periodo da disciplina
+	 * @return periodo
+	 */
+	public int getPeriodo() {
+		return periodo;
 	}
-
 	
-	
-	
+	/**
+	 * Lista de preRequesitos de um disciplina
+	 * @return a lista de preRequisitos
+	 */
 	public List<String> getPreRequisito() {
 		return preRequisito;
 	}
 
-	public void setPreRequisito(ArrayList<String> preRequisito) {
-		this.preRequisito = preRequisito;
-	}
 
 	@Override
 	public int hashCode() {
@@ -65,7 +82,7 @@ public class Disciplina {
 				+ ((preRequisito == null) ? 0 : preRequisito.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -89,12 +106,5 @@ public class Disciplina {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }
