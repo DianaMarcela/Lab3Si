@@ -7,7 +7,6 @@ import junit.framework.Assert;
 
 import models.CarregaDisciplinas;
 import models.Disciplina;
-import models.PlanoDeCurso;
 import models.RepositorioDeDisciplinas;
 
 import org.junit.Before;
@@ -15,19 +14,16 @@ import org.junit.Test;
 
 
 public class TestePlanoDeCurso {
-
-	private PlanoDeCurso plano;
+	
+	RepositorioDeDisciplinas disciplinas = new RepositorioDeDisciplinas();
 
 	@Before
 	public void setUp() throws Exception {
-		plano = new PlanoDeCurso();
 	}
 	
 
 	@Test
 	public void deveMostrarDisciplina() {
-		
-		RepositorioDeDisciplinas disciplinas = new RepositorioDeDisciplinas();
 		
 		ArrayList<Disciplina> lista = disciplinas.getTodasAsDisciplinas(); 
 		// garantindo primeiro período

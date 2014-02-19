@@ -5,7 +5,6 @@ import java.util.Iterator;
 
 import models.Disciplina;
 import models.Fluxograma;
-import models.PlanoDeCurso;
 import models.RepositorioDeDisciplinas;
 import models.CarregaDisciplinas;
 
@@ -21,7 +20,6 @@ import static org.junit.Assert.*;
 
 public class TesteDeCasos {
 
-	private PlanoDeCurso plano;
 	private Fluxograma fluxograma;
 	private Disciplina disciplina1;
 	private Disciplina copiaDaDisciplina1;
@@ -52,6 +50,8 @@ public class TesteDeCasos {
 		fluxograma.addDisciplina(8, disciplina2);
 		// verificando se a disciplina foi inserida como se esperava
 		assertTrue(fluxograma.getDisciplinasDoPeriodo(8).contains(disciplina2));
+		
+		
 	}
 	
 	
@@ -78,4 +78,6 @@ public class TesteDeCasos {
 			System.out.println(iterator.next().getNomeDisciplina());
 		}
 	}
+	
+	
 }
